@@ -1,0 +1,10 @@
+.container{
+    width: 500px;
+}
+.container p{
+    font-size: 14px;
+}
+.container button{
+    background-color: rgb(233, 184, 95);
+    border: none;
+}

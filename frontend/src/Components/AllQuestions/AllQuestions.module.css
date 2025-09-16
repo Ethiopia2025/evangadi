@@ -1,0 +1,19 @@
+.question_container{
+    display: flex;
+    gap: 30px;
+}
+.question_container > div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h3{
+   min-width: 780px; 
+}
+.container a{ 
+  text-decoration: none;
+  color: rgb(76, 79, 82);
+}
+.question_container > div:last-child {
+  padding-top: 20px;
+}

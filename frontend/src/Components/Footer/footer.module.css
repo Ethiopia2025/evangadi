@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  background-color: #3a4559;
+  gap: 350px;
+  padding-left: 150px;
+  color: white;
+}
+
+.Footer img {
+  width: 100px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+.Footer > div {
+  display: flex;  
+  gap: 20px;
+}
+.container a{
+  text-decoration: none;
+  color: white;
+}
+
+
