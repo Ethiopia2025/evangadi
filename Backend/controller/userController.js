@@ -108,7 +108,7 @@ async function login(req, res) {
     return res.status(200).json({
       msg: "User login successful",
       token,
-      user: { userName, userId, email },
+      userName, userId, email 
     });
   } catch (error) {
     console.error(error.message);
@@ -155,7 +155,7 @@ async function deleteUser(req, res) {
 function checkUser(req, res) {
   const userName = req.user.userName;
   const userId = req.user.userId;
-  res.status(StatusCodes.OK).json({ msg: "valid user", userName, userId });
+  return res.status(StatusCodes.OK).json({ msg: "valid user", userName, userId });
 }
 
 

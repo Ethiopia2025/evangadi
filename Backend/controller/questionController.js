@@ -13,8 +13,8 @@ async function askQuestion(req, res) {
     const questionId = uuidv4();
 
       const [existing] = await dbConnection.query(
-          "SELECT * FROM questions WHERE userId = ?  OR title = ?",
-          [userId, title]
+          "SELECT * FROM questions WHERE title = ?",
+          [ title]
         );
     
         if (existing.length > 0) {
@@ -50,11 +50,11 @@ async function getAllQuestions(req, res) {
 
 // GET - single question
 async function getSingleQuestion(req, res) {
-  const { id } = req.params;
+  const { questionId } = req.params;
   try {
     const [rows] = await dbConnection.query(
-      "SELECT * FROM questions WHERE id = ?",
-      [id]
+      "SELECT * FROM questions WHERE questionId = ?",
+      [questionId]
     );
     if (rows.length === 0)
       return res.status(404).json({ msg: "Question not found" });

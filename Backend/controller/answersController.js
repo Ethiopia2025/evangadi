@@ -45,7 +45,6 @@ async function getAnswers(req, res) {
     );
 
     return res.status(200).json({ answers });
-
    
   } catch (error) {
     console.error("Error fetching answers:", error);
@@ -53,6 +52,37 @@ async function getAnswers(req, res) {
   }
 }
 
+async function getAnswersByQuestionId(req, res) {
+  const { qId } = req.params;
+
+  try {
+    const [answers] = await dbConnection.query(
+      `SELECT * FROM answers WHERE questionId = ? 
+       ORDER BY answerId ASC`,
+      [qId]
+    );
+    return res.status(StatusCodes.OK).json(answers);
+  } catch (err) {
+    console.error(err.message);
+    return res
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json({ msg: "Failed to retrieve answers from database" });
+  }
+}
+
+async function getAnswersUser(req, res) {
+  const {userId} = req.params;
+  try {
+    const [answers] = await dbConnection.query(
+      "SELECT * FROM answers WHERE userId = ? ORDER BY answerId DESC", [userId]
+    );
+
+    return res.status(200).json({ answers });
+  } catch (error) {
+    console.error("Error fetching answers:", error);
+    return res.status(500).json({ msg: "Server error" });
+  }
+}
  async function deleteAnswer(req, res) {
    const { answerId} = req.body;
 
@@ -84,4 +114,4 @@ async function getAnswers(req, res) {
    }
  }
 
-module.exports = { createAnswer, getAnswers, deleteAnswer };
+module.exports = { createAnswer, getAnswers, getAnswersByQuestionId,  getAnswersUser, deleteAnswer };

@@ -17,7 +17,7 @@ router.post("/askQuestion",AuthMiddleWare, askQuestion);
 router.get("/allQuestions", getAllQuestions);
 
 // GET /questions/:id → get one question by id
-router.get("/:id", getSingleQuestion);
+router.get("/:questionId", getSingleQuestion);
 
 // POST /questions → create a new question
 router.delete("/delete",  deleteQuestion);
