@@ -1,0 +1,11 @@
+
+
+.answera{
+    display: flex;
+    gap: 30px;
+}
+.account{
+    display: flex;
+    flex-direction: column;
+
+}

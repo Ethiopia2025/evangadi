@@ -67,26 +67,25 @@ useEffect(() => {
     <section className={classes.container}>
       {/* Question */}
       {/* {question && ( */}
-        <div className={classes.questionBox}>
-          <h2>Question</h2>
-          <p>
-            <strong>{question?.title}</strong>
-          </p>
-          <p className={classes.desc}>{question?.description}</p>
-        </div>
+      <div className={classes.questionBox}>
+        <h2>Question</h2>
+        <p>
+          <strong>{question?.title}</strong>
+        </p>
+        <p className={classes.desc}>{question?.description}</p>
+      </div>
       {/* )} */}
 
       {/* Answers */}
       <div className={classes.answersBox}>
-
         <h3>Answer From The Community</h3>
-        <Link to="/">Go To Questions page</Link>
-       <AllAnswers />
+        <AllAnswers />
       </div>
 
       {/* Post Answer */}
       <div className={classes.postAnswer}>
         <h3>Answer The Top Question</h3>
+        <Link to="/">Go To Questions page</Link>
         <form onSubmit={handleSubmit}>
           <textarea
             placeholder="Your Answer..."

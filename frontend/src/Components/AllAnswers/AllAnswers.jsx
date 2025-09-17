@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import axiosInstance from "../../Api/axiosConfig";
 import { AppState } from "../../App";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import classes from "./AllAnswers.module.css";
 
 
 function AllAnswers() {
@@ -24,12 +25,16 @@ const {user} = useContext(AppState)
   }, []);
 
   return (
-    <div>
+    <div className={classes.container}>
       {allAnswers.map((answer) => (
         <div key={answer.answerId} className="answer-card">
-          <AccountCircleIcon />
-          <span>{user?.userName}</span>
-          <p>{answer.answer}</p>
+          <div className={classes.answera}>
+            <div className={classes.account}>
+              <AccountCircleIcon style={{ fontSize: "50px" }} />
+              <span>{user?.userName}</span>
+            </div>
+            <p>{answer.answer}</p>
+          </div>
           {/* <small>By: {answer.userName}</small> */}
         </div>
       ))}
