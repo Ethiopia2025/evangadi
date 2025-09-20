@@ -22,7 +22,7 @@ async function go() {
   try {
     const [result] = await dbConnection.execute("SELECT 'test'"); // ✅ fixed SQL
     console.log("Database connection successful:", result);
-    await app.listen(port, () => {
+     app.listen(port, "0.0.0.0", () => {
       console.log(`Listening on port ${port}`);
     });
   } catch (error) {
