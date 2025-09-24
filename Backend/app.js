@@ -2,7 +2,7 @@ require("dotenv").config(); // load .env
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const PORT = process.env.DB_PORT || 8000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -23,7 +23,7 @@ async function go() {
     const [result] = await dbConnection.execute("SELECT 'test'"); // ✅ fixed SQL
     console.log("Database connection successful:", result);
      app.listen(PORT, "0.0.0.0", () => {
-      console.log(`Listening on port ${PORT}`);
+      console.log(`Server running on port ${PORT}`);
     });
   } catch (error) {
     // ✅ fixed variable name
