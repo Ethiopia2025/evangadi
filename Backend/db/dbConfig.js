@@ -6,6 +6,7 @@ const dbConnection = mysql2.createPool({
   database: process.env.DB_NAME,
   host: process.env.DB_HOST,
   password: process.env.DB_PASSWORD,
+  ssl: { rejectUnauthorized: true },
   connectionLimit: 10,
 });
 
